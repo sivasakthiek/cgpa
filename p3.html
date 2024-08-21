@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="page.css">
+<div class="container">
+<div class="slide">
+    <h2>Semester 3</h2>
+    <form id="semester3-form">
+        <label for="dpco-grade">Digital principles and computer organisation:</label>
+        <select id="dpco-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="fds-grade">Foundation of data science:</label>
+        <select id="fds-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="oops-grade">object oriented programming:</label>
+        <select id="oops-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="os-grade">operating systems:</label>
+        <select id="os-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="dsl-grade">data structures laboratory:</label>
+        <select id="dsl-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="oopl-grade">object oriented programming laboratory:</label>
+        <select id="oopl-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="dsl-grade">Data science laboratory:</label>
+        <select id="dsl-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="qavr-grade">Quantitative aptitude & verbal reasoning:</label>
+        <select id="qavr-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+    </form>
+
+    <div id="result">
+        <h2>Your GPA: <span id="gpa"></span></h2>
+    </div>
+    <div class="navigation">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+</div>
+
+
+<script>
+    
+      let currentFormIndex = 0;
+    const forms = document.querySelectorAll('.form-container');
+
+    function showForm(index) {
+        forms.forEach((form, i) => {
+            form.classList.toggle('active', i === index);
+        });
+    }
+
+    function prevSlide() {
+        window.location.href = 'p2.html';
+    }
+
+    function nextSlide() {
+        if (currentFormIndex < forms.length - 1) {
+            currentFormIndex++;
+            showForm(currentFormIndex);
+        } else {
+            // Redirect to the next page if it's the last form
+            window.location.href = 'p4.html'; // Replace with your desired URL
+        }
+    }
+    showForm(currentFormIndex);
+    function calculateGPA() {
+    const grades = document.querySelectorAll('.grade');
+    const credits = [
+       4,3,3,3,4,2,2,2,1
+    ];
+
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+
+    grades.forEach((grade, index) => {
+        totalGradePoints += parseFloat(grade.value) * credits[index];
+        totalCredits += credits[index];
+    });
+
+    let gpa = totalGradePoints / totalCredits;
+
+    document.getElementById('gpa').textContent = gpa.toFixed(2);
+}
+
+</script>

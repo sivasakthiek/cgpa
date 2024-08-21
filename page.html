@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+    <header>
+        <h1>CGPA Calculator</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="slider">
+                <div class="slides">
+                    <!-- Semester 1 -->
+                    <div class="slide">
+                        <h2>Semester 1</h2>
+                        <form id="semester1-form">
+                            <label for="ce-grade">Communicative English:</label>
+                            <select id="ce-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="ec-grade">Engineering Chemistry:</label>
+                            <select id="ec-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="mc-grade">Matrices and Calculus:</label>
+                            <select id="mc-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="ep-grade">Engineering Physics:</label>
+                            <select id="ep-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="ps-grade">Problem Solving and Python Programming:</label>
+                            <select id="ps-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                 <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="ht-grade">Heritage of Tamil:</label>
+                            <select id="ht-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="pcl-grade">physics and chemistry laboratory:</label>
+                            <select id="pcl-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="psppl-grade">problem solving and python programming laboratory:</label>
+                            <select id="psppl-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="cel-grade">communicative english laboratory:</label>
+                            <select id="cel-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <button type="button" onclick="calculateGPA(1)">Calculate GPA</button>
+                        </form>
+                        <p class="gpa-result" id="gpa-sem1">GPA: N/A</p>
+                    </div>
+                    <!-- Repeat similar structure for Semesters 2 to 8 -->
+                    <div class="slide">
+                        <h2>Semester 2</h2>
+                        <form id="semester2-form">
+                            <!-- Add similar dropdowns as in Semester 1 -->
+                            <label for="te-grade">Techinal english:</label>
+                            <select id="te-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="snm-grade">statistics and numerical methods:</label>
+                            <select id="snm-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="pce-grade">physics for computer science Engineering:</label>
+                            <select id="pce-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="eg-grade">Engineering graphics:</label>
+                            <select id="eg-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="pc-grade">Programming with C:</label>
+                            <select id="pc-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="tt-grade">tamils and technology:</label>
+                            <select id="tt-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="ess-grade">Environmental Sciences and sustainability:</label>
+                            <select id="ess-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="tel-grade">Technical english laboratory:</label>
+                            <select id="tel-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="pcl-grade">programming in c laboratory:</label>
+                            <select id="pcl-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="epl-grade">Engineering practical laboratory:</label>
+                            <select id="epl-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <button type="button" onclick="calculateGPA(2)">Calculate GPA</button>
+                        </form>
+                        <p class="gpa-result" id="gpa-sem2">GPA: N/A</p>
+                    </div>
+                    <!-- Additional Semesters (3 to 8) can be added similarly -->
+                    <div class="slide">
+                        <h2>Semester 3</h2>
+                        <form id="semester3-form">
+                            <label for="dpco-grade">Digital principles and computer organisation:</label>
+                            <select id="dpco-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="fds-grade">Foundation of data science:</label>
+                            <select id="fds-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="oops-grade">object oriented programming:</label>
+                            <select id="oops-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="os-grade">operating systems:</label>
+                            <select id="os-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="dsl-grade">data structures laboratory:</label>
+                            <select id="dsl-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="oopl-grade">object oriented programming laboratory:</label>
+                            <select id="oopl-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="dsl-grade">Data science laboratory:</label>
+                            <select id="dsl-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="qavr-grade">Quantitative aptitude & verbal reasoning:</label>
+                            <select id="qavr-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <button type="button" onclick="calculateGPA(3)">Calculate GPA</button>
+                        </form>
+                        <p class="gpa-result" id="gpa-sem2">GPA: N/A</p>
+                    </div>
+                    <div class="slide">
+                        <h2>Semester 4</h2>
+                        <form id="semester4-form">
+                            <label for="se-grade">software engineering:</label>
+                            <select id="se-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="daa-grade">Design and analysis of algorithms:</label>
+                            <select id="daa-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="dm-grade">Discrete mathematics:</label>
+                            <select id="dm-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="dms-grade">Database management systems:</label>
+                            <select id="dms-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="dmsl-grade">database management systems laboratory:</label>
+                            <select id="dmsl-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="jpl-grade">Java programming laboratory:</label>
+                            <select id="jpl-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                            <label for="qabs-grade">Quantitative aptitude & behaviour skills
+                                :</label>
+                            <select id="qabs-grade">
+                                <option value="10">O</option>
+                                <option value="9">A+</option>
+                                <option value="8">A</option>
+                                <option value="7">B+</option>
+                                <option value="6">B</option>
+                                <option value="5">C+</option>
+                                <option value="4">C</option>
+                                <option value="0">U</option>
+                            </select>
+                </div>
+                <div class="navigation">
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+            <div class="result">
+                <h2>Overall CGPA</h2>
+                <p id="cgpa-result">CGPA: N/A</p>
+            </div>
+        </div>
+    </main>
+    <script src="page.js"></script>
+</body>
+</html>

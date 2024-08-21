@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="page.css">
+<div class="container">
+<div class="slide">
+    <h2>Semester 4</h2>
+    <form id="semester4-form">
+        <label for="se-grade">software engineering:</label>
+        <select id="se-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="daa-grade">Design and analysis of algorithms:</label>
+        <select id="daa-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="dm-grade">Discrete mathematics:</label>
+        <select id="dm-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="dms-grade">Database management systems:</label>
+        <select id="dms-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="java-grade">Java Programming:</label>
+        <select id="java-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="dmsl-grade">database management systems laboratory:</label>
+        <select id="dmsl-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="jpl-grade">Java programming laboratory:</label>
+        <select id="jpl-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+
+        <label for="qabs-grade">Quantitative aptitude & behaviour skills
+            :</label>
+        <select id="qabs-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+<button type="button" onclick="calculateGPA()">Calculate GPA</button>
+</form>
+
+<div id="result">
+    <h2>Your GPA: <span id="gpa"></span></h2>
+</div>
+<div class="navigation">
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+</div>
+
+
+<script>
+    
+  let currentFormIndex = 0;
+const forms = document.querySelectorAll('.form-container');
+
+function showForm(index) {
+    forms.forEach((form, i) => {
+        form.classList.toggle('active', i === index);
+    });
+}
+
+function prevSlide() {
+    window.location.href = 'p3.html';
+}
+
+function nextSlide() {
+    if (currentFormIndex < forms.length - 1) {
+        currentFormIndex++;
+        showForm(currentFormIndex);
+    } else {
+        // Redirect to the next page if it's the last form
+        window.location.href = 'p5.html'; // Replace with your desired URL
+    }
+}
+showForm(currentFormIndex);
+function calculateGPA() {
+const grades = document.querySelectorAll('.grade');
+const credits = [
+   3,4,4,3,3,2,2,1
+];
+
+let totalGradePoints = 0;
+let totalCredits = 0;
+
+grades.forEach((grade, index) => {
+    totalGradePoints += parseFloat(grade.value) * credits[index];
+    totalCredits += credits[index];
+});
+
+let gpa = totalGradePoints / totalCredits;
+
+document.getElementById('gpa').textContent = gpa.toFixed(2);
+}
+
+</script>

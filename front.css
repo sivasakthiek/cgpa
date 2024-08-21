@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a5c0f6, #f4a7a4);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.decorative {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.decorative-circle, .decorative-triangle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.decorative-circle {
+    width: 150px;
+    height: 150px;
+    top: 30%;
+    left: 10%;
+}
+
+.decorative-triangle {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid rgba(255, 255, 255, 0.1);
+    top: 60%;
+    right: 0%;
+}
+
+.content {
+    position: relative;
+    text-align: center;
+}
+
+h1 {
+    color: #4b0082;
+    margin-bottom: 30px;
+}
+@media (max-width: 768px) {
+    button {
+        width: 100%;
+        font-size: 14px; 
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    input[type="number"], select {
+        font-size: 14px;
+    }
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    input[type="number"], select {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+.buttons button {
+    background-color: #6a0dad;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #4b0082;
+}
+
+.buttons button:active {
+    background-color: #3d0066;
+}

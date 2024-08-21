@@ -1,0 +1,178 @@
+<link rel="stylesheet" href="page.css">
+<div class="container">
+<div class="slide">
+    <h2>Semester 2</h2>
+    <form id="semester2-form">
+     
+        <label for="te-grade">Techinal english:</label>
+        <select id="te-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="snm-grade">statistics and numerical methods:</label>
+        <select id="snm-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="pce-grade">physics for computer science Engineering:</label>
+        <select id="pce-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="eg-grade">Engineering graphics:</label>
+        <select id="eg-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="pc-grade">Programming with C:</label>
+        <select id="pc-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="tt-grade">tamils and technology:</label>
+        <select id="tt-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="ess-grade">Environmental Sciences and sustainability:</label>
+        <select id="ess-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="ncc-grade">NCC credit course level 1:</label>
+        <select id="ncc-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="tel-grade">Technical english laboratory:</label>
+        <select id="tel-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="pcl-grade">programming in c laboratory:</label>
+        <select id="pcl-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <label for="epl-grade">Engineering practical laboratory:</label>
+        <select id="epl-grade" class="grade">
+            <option value="10">O</option>
+            <option value="9">A+</option>
+            <option value="8">A</option>
+            <option value="7">B+</option>
+            <option value="6">B</option>
+            <option value="5">C+</option>
+            <option value="4">C</option>
+            <option value="0">U</option>
+        </select>
+        <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+    </form>
+
+    <div id="result">
+        <h2>Your GPA: <span id="gpa"></span></h2>
+    </div>
+    <div class="navigation">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+</div>
+
+
+<script>
+      let currentFormIndex = 0;
+    const forms = document.querySelectorAll('.form-container');
+
+    function showForm(index) {
+        forms.forEach((form, i) => {
+            form.classList.toggle('active', i === index);
+        });
+    }
+
+    function prevSlide() {
+        window.location.href = 's1.html';
+    }
+
+    function nextSlide() {
+            window.location.href = 's3.html';
+    }
+    showForm(currentFormIndex);
+    function calculateGPA() {
+    const grades = document.querySelectorAll('.grade');
+    const credits = [
+       3,4,3,4,3,1,2,2,1,2,2
+    ];
+
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+
+    grades.forEach((grade, index) => {
+        totalGradePoints += parseFloat(grade.value) * credits[index];
+        totalCredits += credits[index];
+    });
+
+    let gpa = totalGradePoints / totalCredits;
+
+    document.getElementById('gpa').textContent = gpa.toFixed(2);
+}
+
+</script>

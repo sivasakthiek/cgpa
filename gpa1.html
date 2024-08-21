@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            margin-left: 35%;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+
+        h1 {
+            text-align: center;
+            color:#4b0082;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+   h2{
+    
+    color:#4b0082;
+   }    
+button {
+    background-color: #6a0dad;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4b0082;
+}
+
+button:active {
+    background-color: #3d0066;
+}
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GPA Calculator</h1>
+        <form id="gpa-form">
+            <div class="input-group">
+                <label for="numCourses">Number of Courses:</label>
+                <input type="number" id="numCourses" name="numCourses" min="1" required>
+            </div>
+            <div id="courses-container"></div>
+            <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+        </form>
+        <div id="result">
+            <h2>GPA: <span id="gpa">-</span></h2>
+        </div>
+    </div>
+    <div class="credits">
+        <div class="sem 1">
+            <h2>SEMESTER 1</h2>
+            <h3>Communicative English: 3</h3>
+            <h3>Engineering Chemistry : 3</h3>
+            <h3>Matrices and Calculus : 4</h3>
+            <h3>Engineering Physics : 3</h3>
+            <h3>PSPP :3</h3>
+            <h3>Heritage of tamils : 1</h3>
+            <h3>Physics and Chemistry Laboratory : 2</h3>
+            <h3>PSPP Laboratory : 2</h3>
+            <h3>Communicative English Laboratory : 1</h3>
+        </div>
+    </div>
+    <div class="sem 2">
+        <h2>SEMESTER 2</h2>
+        <h3>Technical English : 3</h3>
+        <h3>Statistics and Numerical Methods : 4</h3>
+        <h3>Physics for CSE : 3</h3>
+        <h3>Engineering graphics : 4</h3>
+        <h3>Pogramming in C : 3</h3>
+        <h3>Tamils and Technology : 1</h3>
+        <h3>ESS : 2</h3>
+        <h3>NCC COURSE LEVEL 1 : 2 </h3>
+        <h3>Technical English Laboratory: 1</h3>
+        <h3>Pogramming in C Laboratory: 2</h3>
+        <h3>Engineering Practices Laboratory : 2</h3>
+    </div>
+    <div class="sem 3">
+        <h2>SEMESTER 3</h2>
+        <h3>Digital principals and computer organisation : 4</h3>
+        <h3>Foundation of data science : 3</h3>
+        <h3>Data structures : 3</h3>
+        <h3>OOPS : 3</h3>
+        <h3>OS : 4</h3>
+        <h3>Data structure Laboratory : 2</h3>
+        <h3>OOPS Laboratory : 2</h3>
+        <h3>Data science Laboratory : 2</h3>
+        <h3>QA & VR : 1</h3>
+    </div>
+    <div class="sem 4">
+        <h2>SEMESTER 4</h2>
+        <h3>Software Engineering : 3</h3>
+        <h3>Designs and analysis of Algorithms : 4</h3>
+        <h3>Discrete mathematics : 4</h3>
+        <h3>DBMS : 3</h3>
+        <h3>Java programming : 3</h3>
+        <h3>NCC CREDIT COURSE LEVEL 2 : 3</h3>
+        <H3>DBMS Laboratory : 2</H3>
+        <h3>JAVA Laboratory : 2</h3>
+        <h3>QA & BS : 1</h3>
+    </div>
+    <div class="sem 5">
+        <h2>SEMESTER 5</h2>
+        <h3>computer Design : 4</h3>
+        <h3>Open Elective-1 : 3</h3>
+        <h3>Mandatory course-1 : 0</h3>
+        <span>
+            <h3>computer Networks : 4 </h3>
+            <h3>Full stack programming : 4</h3>
+            <h3>Professional Elective-1 : 3</h3>
+            <h3>Professional Elective-2 : 3</h3>
+            <h3>QA & CS : 1</h3>
+        </span>
+    </div>
+    <div class="sem 6">
+        <h2>SEMESTER 6</h2>
+        <h3>mobile computing : 3</h3>
+        <h3>open elective Elective-2: 3</h3>
+        <h3>Mandatory course-2 : 0</h3>
+        <h3>NCC CREDIT COURSE LEVEL -3 : 3</h3>
+        <h3>cryptography and cyber security : 4</h3>
+        <h3>AIML : 4</h3>
+        <h3>Professional Elective-3 : 3</h3>
+        <h3>Professional Elective-4 : 3</h3>
+        <h3>mobile application dev Laboratory : 2</h3>
+        <h3>QA & SS : 1</h3>
+        <h3>mini project : 2</h3>
+    </div>
+    <div class="sem 7">
+        <h2>SEMESTER 7</h2>
+        <h3>Human values and ethics : 2</h3>
+        <h3>Elective-management : 3</h3>
+        <h3>open Elective-3 : 3</h3>
+        <h3>Professional Elective-5 : 3</h3>
+        <h3>Professional Elective-6 : 3</h3>
+        <h3>internship : 1</h3>
+    </div>
+    <div class="sem 8">
+        <h2>SEMESTER 8</h2>
+        <h3>project work : 10</h3>
+    </div>
+    <script>
+        document.getElementById('numCourses').addEventListener('change', function() {
+            const numCourses = parseInt(this.value);
+            const container = document.getElementById('courses-container');
+            container.innerHTML = '';
+
+            for (let i = 0; i < numCourses; i++) {
+                const courseDiv = document.createElement('div');
+                courseDiv.className = 'input-group';
+                courseDiv.innerHTML = `
+                    <label for="grade${i}">Grade for Course ${i + 1}:</label>
+                    <input type="text" id="grade${i}" name="grade${i}" placeholder="O, A+, A, B+, B, C+, C, U" required>
+                    <label for="credits${i}">Credits for Course ${i + 1}:</label>
+                    <input type="number" id="credits${i}" name="credits${i}" min="1" required>
+                `;
+                container.appendChild(courseDiv);
+            }
+        });
+
+        function calculateGPA() {
+            const numCourses = parseInt(document.getElementById('numCourses').value);
+            let totalPoints = 0;
+            let totalCredits = 0;
+
+            for (let i = 0; i < numCourses; i++) {
+                const grade = document.getElementById(`grade${i}`).value.toUpperCase();
+                const credits = parseFloat(document.getElementById(`credits${i}`).value);
+                const gradePoints = getGradePoints(grade);
+
+                if (gradePoints === null || isNaN(credits)) {
+                    alert('Please enter valid grade and credits.');
+                    return;
+                }
+
+                totalPoints += gradePoints * credits;
+                totalCredits += credits;
+            }
+
+            const gpa = totalPoints / totalCredits;
+            document.getElementById('gpa').textContent = gpa.toFixed(2);
+        }
+
+        function getGradePoints(grade) {
+            switch (grade) {
+                case 'O': return 10.0;
+                case 'A+': return 9.0;
+                case 'A': return 8.0;
+                case 'B+': return 7.0;
+                case 'B': return 6.0;
+                case 'C+': return 5.0;
+                case 'C': return 4.0;
+                case 'U': return 0.0;
+                default: return null;
+            }
+        }
+    </script>
+</body>
+</html>

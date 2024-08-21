@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Semester GPA Calculator</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+    <div class="container">
+        <div class="slide">
+        <form id="gpaForm">
+            <h2>Semester 7</h2>
+            <div class="input-group">
+                <label for="subject1">human values and ethics:</label>
+                <select id="subject1" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+          
+            <div class="input-group">
+                <label for="subject2">Elective - management :</label>
+                <select id="subject2" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject3">open elective -III:</label>
+                <select id="subject3" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="subject4">professional elective -V:</label>
+                <select id="subject4" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject5">professional elective-VI:</label>
+                <select id="subject5" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject6">intership:</label>
+                <select id="subject6" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            
+            <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+        </form>
+
+        <div id="result">
+            <h2>Your GPA: <span id="gpa"></span></h2>
+        </div>
+        <div class="navigation">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+        </div>
+        
+        
+        <script>
+            
+          let currentFormIndex = 0;
+        const forms = document.querySelectorAll('.form-container');
+        
+        function showForm(index) {
+            forms.forEach((form, i) => {
+                form.classList.toggle('active', i === index);
+            });
+        }
+        
+        function prevSlide() {
+            window.location.href = 'p6.html';
+        }
+        
+        function nextSlide() {
+                window.location.href = 'p8.html'; 
+        }
+        showForm(currentFormIndex);
+        function calculateGPA() {
+    const grades = document.querySelectorAll('.grade');
+    const credits = [
+      2,3,3,3,3,1
+    ];
+
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+
+    grades.forEach((grade, index) => {
+        totalGradePoints += parseFloat(grade.value) * credits[index];
+        totalCredits += credits[index];
+    });
+
+    let gpa = totalGradePoints / totalCredits;
+
+    document.getElementById('gpa').textContent = gpa.toFixed(2);
+}
+
+    </script>
+</body>
+</html>

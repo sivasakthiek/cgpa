@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Semester GPA Calculator</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+    <div class="container">
+        <h1>8-Semester GPA Calculator</h1>
+        <form id="gpaForm">
+            <h2>Semester 1</h2>
+            <div class="input-group">
+                <label for="subject1">Communicative English:</label>
+                <select id="subject1" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+         
+            <div class="input-group">
+                <label for="subject2">Engineering Chemistry:</label>
+                <select id="subject2" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject3">Matrices and Calculus:</label>
+                <select id="subject3" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject4">Engineering physics :</label>
+                <select id="subject4" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject5">Pspp:</label>
+                <select id="subject5" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject6">Heritage of tamils:</label>
+                <select id="subject6" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject7">Physics and chemistry Laboratory:</label>
+                <select id="subject7" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject8">pspp laboratory:</label>
+                <select id="subject8" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject9">Communicative English laboratory:</label>
+                <select id="subject9" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            
+            <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+        </form>
+
+        <div id="result">
+            <h2>Your GPA: <span id="gpa"></span></h2>
+        </div>
+        <div class="navigation">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+
+    <script>
+          let currentFormIndex = 0;
+        const forms = document.querySelectorAll('.form-container');
+        function showForm(index) {
+            forms.forEach((form, i) => {
+                form.classList.toggle('active', i === index);
+            });
+        }
+
+        function prevSlide() {
+            window.location.href = 'cgpapage.html';
+        }
+
+        function nextSlide() {
+           
+                window.location.href = 'p2.html';
+            }
+        showForm(currentFormIndex);
+        function calculateGPA() {
+    const grades = document.querySelectorAll('.grade');
+    const credits = [
+        3, 
+        3, 
+        4, 
+        3, 
+        3, 
+        1,
+        2, 
+        2, 
+        1  
+    ];
+
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+
+    grades.forEach((grade, index) => {
+        totalGradePoints += parseFloat(grade.value) * credits[index];
+        totalCredits += credits[index];
+    });
+
+    let gpa = totalGradePoints / totalCredits;
+
+    document.getElementById('gpa').textContent = gpa.toFixed(2);
+}
+
+
+    </script>
+</body>
+</html>

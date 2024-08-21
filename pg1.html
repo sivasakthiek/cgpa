@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        button {
+    background-color: #6a0dad;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4b0082;
+}
+
+button:active {
+    background-color: #3d0066;
+}
+
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>CGPA Calculator</h2>
+        <button onclick="calculateCGPA()">Calculate CGPA</button>
+        <div id="result"><h2>YOUR CGPA :
+        </h2></div>
+    </div>
+
+    <script>
+       function fetchGPA(url) {
+            return fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const gpaElement = doc.querySelector('.gpa');
+                    return parseFloat(gpaElement.textContent.trim());
+                })
+                .catch(error => {
+                    console.error('Error fetching GPA data:', error);
+                    return 0; // Return 0 in case of an error
+                });
+        }
+        async function calculateCGPA() {
+            const urls = [
+                'p1.html', 'p2.html', 'p3.html', 'p4.html', 'p5.html',
+                'p6.html', 'p7.html', 'p8.html'
+            ];
+
+            let totalGPA = 0;
+            let count = 0;
+
+            for (const url of urls) {
+                const gpa = await fetchGPA(url);
+                totalGPA += gpa;
+                count++;
+            }
+
+            const cgpa =  // Calculate CGPA
+            document.getElementById('gpa').textContent = cgpa; // Display CGPA
+        }
+
+        // Calculate CGPA when the page loads
+        calculateCGPA();
+
+    </script>
+</body>
+</html>

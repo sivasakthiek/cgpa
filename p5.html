@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Semester GPA Calculator</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+    <div class="container">
+    <div class="slide">
+        <form id="gpaForm">
+            <h2>Semester 5</h2>
+            <div class="input-group">
+                <label for="subject1">compiler design:</label>
+                <select id="subject1" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <!-- Add all the subjects for Semester 1 -->
+            <div class="input-group">
+                <label for="subject2">open elective-I:</label>
+                <select id="subject2" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject3">mandatory course-I:</label>
+                <select id="subject3" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+
+            <!-- Add other subjects for Semester 1 -->
+
+            <!-- Repeat the same structure for all 8 semesters -->
+            <!-- Semester 2, Semester 3, etc. -->
+            <div class="input-group">
+                <label for="subject4">computer networks:</label>
+                <select id="subject4" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject5">Full stack programming:</label>
+                <select id="subject5" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject6">professional elective-I:</label>
+                <select id="subject6" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject7">Professional elective-II:</label>
+                <select id="subject7" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject8">Quantitative aptitude &communicative skills:</label>
+                <select id="subject8" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            </div>
+            <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+        </form>
+
+        <div id="result">
+            <h2>Your GPA: <span id="gpa"></span></h2>
+        </div>
+        <div class="navigation">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+        </div>
+        
+        
+        <script>
+            
+          let currentFormIndex = 0;
+        const forms = document.querySelectorAll('.form-container');
+        
+        function showForm(index) {
+            forms.forEach((form, i) => {
+                form.classList.toggle('active', i === index);
+            });
+        }
+        
+        function prevSlide() {
+            window.location.href = 'p4.html';
+        }
+        
+        function nextSlide() {
+            if (currentFormIndex < forms.length - 1) {
+                currentFormIndex++;
+                showForm(currentFormIndex);
+            } else {
+                // Redirect to the next page if it's the last form
+                window.location.href = 'p6.html'; // Replace with your desired URL
+            }
+        }
+        showForm(currentFormIndex);
+        function calculateGPA() {
+    const grades = document.querySelectorAll('.grade');
+    const credits = [
+       4,3,0,4,4,3,3,1
+    ];
+
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+
+    grades.forEach((grade, index) => {
+        totalGradePoints += parseFloat(grade.value) * credits[index];
+        totalCredits += credits[index];
+    });
+
+    let gpa = totalGradePoints / totalCredits;
+
+    document.getElementById('gpa').textContent = gpa.toFixed(2);
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Semester GPA Calculator</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+    <div class="container">
+        <div class="slide">
+        <form id="gpaForm">
+            <h2>Semester 6</h2>
+            <div class="input-group">
+                <label for="subject1">Mobile computing:</label>
+                <select id="subject1" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="subject2">Open elective-II:</label>
+                <select id="subject2" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject3">Mandatory course-II:</label>
+                <select id="subject3" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="subject4">cryptography and cyber security :</label>
+                <select id="subject4" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject5">Artifically intelligence and machine learning:</label>
+                <select id="subject5" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject6">professional elective-III:</label>
+                <select id="subject6" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject7">Professional elective-IV:</label>
+                <select id="subject7" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject8">mobile application development lab:</label>
+                <select id="subject8" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div><div class="input-group">
+                <label for="subject9">quantitive aptitude soft skills:</label>
+                <select id="subject9" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="subject10">mini project:</label>
+                <select id="subject10" class="grade">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C+</option>
+                    <option value="4">C</option>
+                    <option value="0">U</option>
+                </select>
+            </div>
+            </div>
+            <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+        </form>
+
+        <div id="result">
+            <h2>Your GPA: <span id="gpa"></span></h2>
+        </div>
+        <div class="navigation">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+        </div>
+        
+        
+        <script>
+            
+          let currentFormIndex = 0;
+        const forms = document.querySelectorAll('.form-container');
+        
+        function showForm(index) {
+            forms.forEach((form, i) => {
+                form.classList.toggle('active', i === index);
+            });
+        }
+        
+        function prevSlide() {
+            window.location.href = 'p5.html';
+        }
+        
+        function nextSlide() {
+
+                window.location.href = 'p7.html';
+            }
+        showForm(currentFormIndex);
+        function calculateGPA() {
+    const grades = document.querySelectorAll('.grade');
+    const credits = [
+        3,3,0,4,4,3,3,2,1,2
+    ];
+
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+
+    grades.forEach((grade, index) => {
+        totalGradePoints += parseFloat(grade.value) * credits[index];
+        totalCredits += credits[index];
+    });
+
+    let gpa = totalGradePoints / totalCredits;
+
+    document.getElementById('gpa').textContent = gpa.toFixed(2);
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a5c0f6, #f4a7a4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-top: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #4b0082;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+input[type="number"], select {
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="number"] {
+    margin-right: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #6a0dad;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #6a0dad;
+    font-size: 14px;
+}
+
+button {
+    background-color: #6a0dad;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4b0082;
+}
+
+button:active {
+    background-color: #3d0066;
+}
+
+
+#result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#gpa {
+    color: #4b0082;
+    font-size: 24px;
+    font-weight: bold;
+}

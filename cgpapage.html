@@ -1,0 +1,178 @@
+<div class="container">
+    <button id="btn" class="close-btn" onclick="frontpage()">x</button>
+    <h1>Choose a Calculator</h1>
+    <div class="options">
+        <div class="option-card">
+            <h2>GPA to CGPA</h2>
+            <p>Convert your GPA to CGPA easily.</p>
+            <button onclick="location.href='shiju.html'">GPA to CGPA</button>
+        </div>
+        <div class="option-card">
+            <h2>All Semesters Grades to CGPA</h2>
+            <p>Calculate CGPA from all semester grades.</p>
+            <button id="showAlertBtn">All Grades to CGPA</button>
+
+            <div id="alertBox" class="alert-box">
+                <p><strong>Are you an NCC student?</strong></p>
+                <button id="yesBtn" class="alert-btn">Yes</button>
+                <button id="noBtn" class="alert-btn">No</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<script>
+    
+    function frontpage() {
+        window.location.href = 'front.html';
+    }
+    document.getElementById('showAlertBtn').addEventListener('click', function() {
+    document.getElementById('alertBox').style.display = 'block';
+});
+
+document.getElementById('yesBtn').addEventListener('click', function() {
+    window.location.href = 's1.html'; 
+});
+
+document.getElementById('noBtn').addEventListener('click', function() {
+    window.location.href = 'p1.html'; 
+});
+
+   
+</script>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a5c0f6, #f4a7a4);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #4b0082;
+}
+
+h1 {
+    color: #4b0082;
+    margin-bottom: 30px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.option-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.option-card h2 {
+    color: #6a0dad;
+    margin-bottom: 15px;
+}
+
+.option-card p {
+    margin-bottom: 20px;
+}
+
+.option-card button {
+    background-color: #6a0dad;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.option-card button:hover {
+    background-color: #4b0082;
+}
+
+.option-card button:active {
+    background-color: #3d0066;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+#showAlertBtn {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.alert-box {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 2px solid #333;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+}
+
+.alert-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#yesBtn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+}
+
+#noBtn {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+}
+
+
+</style>
